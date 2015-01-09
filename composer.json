@@ -1,0 +1,47 @@
+{
+    "name": "mofumofu3n/anime-tools",
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mofumofu",
+            "email": "mofumofu3n@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "mofumofu3n/AnimeHashTag",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/mofumofu3n/AnimeHashTag",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "mofumofu3n/php-crawler",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/mofumofu3n/php-crawler",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "mofumofu3n/AnimeHashTag": "*",
+        "mofumofu3n/php-crawler": "*",
+        "parse/php-sdk": "1.0.*"
+    },
+    "config": {
+        "vendor-dir": "vendor"
+    }
+}
