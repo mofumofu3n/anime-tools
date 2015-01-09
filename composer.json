@@ -12,32 +12,16 @@
     ],
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "mofumofu3n/AnimeHashTag",
-                "version": "master",
-                "source": {
-                    "url": "https://github.com/mofumofu3n/AnimeHashTag",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
+            "type": "vcs",
+            "url": "https://github.com/mofumofu3n/AnimeHashTag.git"
         },
         {
-            "type": "package",
-            "package": {
-                "name": "mofumofu3n/php-crawler",
-                "version": "master",
-                "source": {
-                    "url": "https://github.com/mofumofu3n/php-crawler",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
+            "type": "vcs",
+            "url": "https://github.com/mofumofu3n/php-crawler.git"
         }
     ],
     "require": {
-        "mofumofu3n/AnimeHashTag": "*",
+        "mofumofu3n/anime-hash-tag": "*",
         "mofumofu3n/php-crawler": "*",
         "parse/php-sdk": "1.0.*"
     },
