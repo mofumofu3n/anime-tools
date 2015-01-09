@@ -26,6 +26,9 @@
         "parse/php-sdk": "1.0.*"
     },
     "config": {
-        "vendor-dir": "vendor"
+        "vendor-dir": "vendor/"
+    },
+    "autoload": {
+        "psr-0": {"AnimeTools\\": "lib/AnimeTools"}
     }
 }
