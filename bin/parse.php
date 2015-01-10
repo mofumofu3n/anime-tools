@@ -22,7 +22,18 @@ try {
         $url = $object->get('feedUrl');
 
         echo sprintf("id: %s, title: %s, url: %s \n", $id, $title, $url);
+        addArticle($object);
     }
 } catch (ParseException $e) {
     var_dump($e);
+}
+
+function addArticle($feedObject)
+{
+    $article = new ParseObject('Article');
+    $article->set('feed', $feedObject);
+    $article->set('title', 'テスト2');
+    $article->set('url', 'http://example.com');
+    $article->set('image', 'http://example.com');
+    $article->save();
 }
