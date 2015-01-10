@@ -3,6 +3,7 @@ require __DIR__.'/../vendor/autoload.php';
 require __DIR__.'/../config.php';
 
 use AnimeTools\Model\ArticleBuilder;
+use AnimeTools\Model\Feed;
 use Parse\ParseClient;
 use Parse\ParseObject;
 use Parse\ParseQuery;
@@ -18,12 +19,9 @@ try {
     $results = $query->find();
 
     foreach ($results as $object) {
-        $id = $object->getObjectId();
-        $title = $object->get('title');
-        $url = $object->get('feedUrl');
-
-        echo sprintf("id: %s, title: %s, url: %s \n", $id, $title, $url);
-        addArticle($object);
+        $feed = new Feed($object);
+        echo sprintf("id: %s, title: %s, url: %s \n", $feed->getId(), $feed->getTitle(), $feed->getUrl());
+        //addArticle($object);
     }
 } catch (ParseException $e) {
     var_dump($e);
