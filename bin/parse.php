@@ -14,7 +14,15 @@ ParseClient::initialize(PARSE_APP_ID, PARSE_REST_KEY, PARSE_MASTER_KEY);
 $query = new ParseQuery("Feed");
 
 try {
-    var_dump($query->find());
+    $results = $query->find();
+
+    foreach ($results as $object) {
+        $id = $object->getObjectId();
+        $title = $object->get('title');
+        $url = $object->get('feedUrl');
+
+        echo sprintf("id: %s, title: %s, url: %s \n", $id, $title, $url);
+    }
 } catch (ParseException $e) {
     var_dump($e);
 }
