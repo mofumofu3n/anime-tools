@@ -29,6 +29,6 @@
         "vendor-dir": "vendor/"
     },
     "autoload": {
-        "psr-0": {"AnimeTools\\": "lib/AnimeTools"}
+        "psr-4": {"AnimeTools\\": "lib/AnimeTools/"}
     }
 }
