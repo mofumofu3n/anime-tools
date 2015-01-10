@@ -36,6 +36,12 @@ class ArticleBuilder
         return $this;
     }
 
+    public function setPublished($date)
+    {
+        $this->object->set('publishedAt', $date);
+        return $this;
+    }
+
     public function save()
     {
         $this->object->save();
