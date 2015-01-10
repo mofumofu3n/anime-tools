@@ -12,6 +12,13 @@ class ArticleBuilder
         $this->object = new ParseObject('Article');
     }
 
+    /**
+     * setFeedObject
+     *
+     * @param ParseObject $feedObject
+     * @access public
+     * @return void
+     */
     public function setFeedObject($feedObject)
     {
         $this->object->set('feed', $feedObject);
