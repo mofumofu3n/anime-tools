@@ -1,14 +1,21 @@
 <?php
 namespace AnimeTools;
 
-use \Mofumofu3n\Crawler\AbstractCrawler;
-use \Mofumofu3n\Crawler\Parser\ParserFactory;
+use Mofumofu3n\Crawler\AbstractCrawler;
+use Mofumofu3n\Crawler\Model\StructArticle;
+use Mofumofu3n\Crawler\Parser\ParserFactory;
+
+use AnimeTools\Model\ArticleBuilder;
+
 
 class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
 {
-    public function __construct($feeds)
+    private $feedObject;
+
+    public function __construct($feeds, $feedObject)
     {
         parent::__construct($feeds);
+        $this->feedObject = $feedObject;
     }
 
     public function success($feedId, $content)
@@ -17,10 +24,37 @@ class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
         $type = $decode->getName();
 
         $parser = ParserFactory::factory($type);
+
+        if (!isset($parser)) {
+            return;
+        }
+
         $articles = $parser->parse($decode);
 
-        var_dump($articles);
+        foreach ($articles as $article) {
+            $this->addArticle($this->feedObject[$feedId], $article);
+        }
+
         return true;
+    }
+
+    
+    /**
+     * 記事を保存する 
+     * @param mixed $feedObject 
+     * @param mixed $article 
+     * @access private
+     * @return void
+     */
+    private function addArticle($feedObject, $article)
+    {
+        $articleObject = new ArticleBuilder();
+        $articleObject->setFeedObject($feedObject)
+            ->setTitle($article[StructArticle::ARTICLE_TITLE])
+            ->setUrl($article[StructArticle::ARTICLE_LINK])
+            ->setImageUrl($article[StructArticle::ARTICLE_IMAGE])
+            ->setPublished((String)$article[StructArticle::ARTICLE_PUBLISHED_DATE])
+            ->save();
     }
 
     protected function fail($code, $url)

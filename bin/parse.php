@@ -23,7 +23,6 @@ try {
     $results = $query->find();
     foreach ($results as $object) {
         $feed = new Feed($object);
-
         $simpleFeed = new SimpleFeed($feed);
         $feedArray[] = $simpleFeed;
 
@@ -36,18 +35,6 @@ try {
 
 $crawler = new Crawler($feedArray);
 $crawler->getContents();
-
-function addArticle($feedObject)
-{
-    $datetime = new \DateTime('2015-01-10T23:15:31+09:00');
-    $article = new ArticleBuilder();
-    $article->setFeedObject($feedObject)
-        ->setTitle('テスト3')
-        ->setUrl('http://example.com')
-        ->setImageUrl('http://example.com')
-        ->setPublished($datetime)
-        ->save();
-}
 
 class SimpleFeed
 {
