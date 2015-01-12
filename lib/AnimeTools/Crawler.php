@@ -2,6 +2,7 @@
 namespace AnimeTools;
 
 use \Mofumofu3n\Crawler\AbstractCrawler;
+use \Mofumofu3n\Crawler\Parser\ParserFactory;
 
 class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
 {
@@ -10,9 +11,16 @@ class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
         parent::__construct($feeds);
     }
 
-    protected function success($feedId, $content)
+    public function success($feedId, $content)
     {
-        var_dump($content);
+        $decode = simplexml_load_string($content);
+        $type = $decode->getName();
+
+        $parser = ParserFactory::factory($type);
+        $articles = $parser->parse($decode);
+
+        var_dump($articles);
+        return true;
     }
 
     protected function fail($code, $url)
