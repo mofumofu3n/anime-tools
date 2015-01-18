@@ -21,19 +21,19 @@ $feedArray = array();
 
 try {
     $results = $query->find();
-    foreach ($results as $object) {
-        $feed = new Feed($object);
-        $simpleFeed = new SimpleFeed($feed);
-        $feedArray[] = $simpleFeed;
 
+    for ($i = 0; $i < count($results); $i++) {
+        $feed = new Feed($results[$i]);
+        $simpleFeed = new SimpleFeed($i, $feed);
+        $feedArray[$i] = $simpleFeed;
+    }
         //echo sprintf("id: %s, title: %s, url: %s \n", $feed->getId(), $feed->getTitle(), $feed->getUrl());
         //addArticle($object);
-    }
 } catch (ParseException $e) {
     var_dump($e);
 }
 
-$crawler = new Crawler($feedArray);
+$crawler = new Crawler($feedArray, $results);
 $crawler->getContents();
 
 class SimpleFeed
@@ -41,9 +41,9 @@ class SimpleFeed
     public $id;
     public $url;
 
-    public function __construct($feed)
+    public function __construct($index, $feed)
     {
-        $this->id = $feed->getId();
+        $this->id = $index;
         $this->url = $feed->getUrl();
     }
 }
