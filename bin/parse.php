@@ -1,6 +1,10 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
-require __DIR__.'/../Config.php';
+
+if (file_exists(__DIR.'/../Config.php')) {
+    require __DIR__.'/../Config.php';
+}
+
 
 use AnimeTools\Crawler;
 use AnimeTools\Model\ArticleBuilder;
