@@ -22,8 +22,8 @@
     ],
     "require": {
         "mofumofu3n/anime-hash-tag": "*",
-        "mofumofu3n/php-crawler": "*",
-        "parse/php-sdk": "1.0.*"
+        "parse/php-sdk": "1.0.*",
+        "fabpot/goutte": "~2.0"
     },
     "config": {
         "vendor-dir": "vendor/"
