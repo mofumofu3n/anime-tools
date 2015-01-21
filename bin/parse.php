@@ -11,7 +11,13 @@ use Parse\ParseObject;
 use Parse\ParseQuery;
 use Parse\ParseException;
 
-ParseClient::initialize(PARSE_APP_ID, PARSE_REST_KEY, PARSE_MASTER_KEY);
+// Parseへのアクセスを設定
+$APP_ID = (isset(PARSE_APP_ID) ? PARSE_APP_ID : $_SERVER['PARSE_APP_ID']);
+$REST_KEY  = (isset(PARSE_REST_KEY) ? PARSE_REST_KEY : $_SERVER['PARSE_REST_KEY']);
+$MASTER_KEY  = (isset(PARSE_MASTER_KEY) ? PARSE_MASTER_KEY : $_SERVER['PARSE_MASTER_KEY']);
+
+
+ParseClient::initialize($APP_ID, $REST_KEY, $MASTER_KEY);
 
 date_default_timezone_set('Asia/Tokyo');
 
