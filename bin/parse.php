@@ -1,7 +1,7 @@
 <?php
 require __DIR__.'/../vendor/autoload.php';
 
-if (file_exists(__DIR.'/../Config.php')) {
+if (file_exists(__DIR__.'/../Config.php')) {
     require __DIR__.'/../Config.php';
 }
 
@@ -16,10 +16,11 @@ use Parse\ParseQuery;
 use Parse\ParseException;
 
 // Parseへのアクセスを設定
-$APP_ID = (isset(PARSE_APP_ID) ? PARSE_APP_ID : $_SERVER['PARSE_APP_ID']);
-$REST_KEY  = (isset(PARSE_REST_KEY) ? PARSE_REST_KEY : $_SERVER['PARSE_REST_KEY']);
-$MASTER_KEY  = (isset(PARSE_MASTER_KEY) ? PARSE_MASTER_KEY : $_SERVER['PARSE_MASTER_KEY']);
+$APP_ID = (defined(PARSE_APP_ID) ? PARSE_APP_ID : $_SERVER['PARSE_APP_ID']);
+$REST_KEY  = (defined(PARSE_REST_KEY) ? PARSE_REST_KEY : $_SERVER['PARSE_REST_KEY']);
+$MASTER_KEY  = (defined(PARSE_MASTER_KEY) ? PARSE_MASTER_KEY : $_SERVER['PARSE_MASTER_KEY']);
 
+print($APP_ID);
 
 ParseClient::initialize($APP_ID, $REST_KEY, $MASTER_KEY);
 
