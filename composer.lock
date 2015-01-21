@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e0932d6df90df7660c48c59ed3de60ac",
+    "hash": "5abbdee19c1a741cb7da68590669434d",
     "packages": [
         {
             "name": "fabpot/goutte",
@@ -211,6 +211,45 @@
                 "issues": "https://github.com/mofumofu3n/AnimeHashTag/issues"
             },
             "time": "2014-12-30 06:55:24"
+        },
+        {
+            "name": "mofumofu3n/php-crawler",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mofumofu3n/php-crawler.git",
+                "reference": "17e9142ba6d006d8341ca85fde111a6e09ad3ab5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mofumofu3n/php-crawler/zipball/17e9142ba6d006d8341ca85fde111a6e09ad3ab5",
+                "reference": "17e9142ba6d006d8341ca85fde111a6e09ad3ab5",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mofumofu3n\\Crawler\\": "src/Mofumofu3n/Crawler"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mofumofu",
+                    "email": "mofumofu3n@gmail.com"
+                }
+            ],
+            "description": "Crawler",
+            "support": {
+                "source": "https://github.com/mofumofu3n/php-crawler/tree/master",
+                "issues": "https://github.com/mofumofu3n/php-crawler/issues"
+            },
+            "time": "2015-01-12 01:39:20"
         },
         {
             "name": "parse/php-sdk",
