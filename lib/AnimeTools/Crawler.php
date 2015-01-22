@@ -7,7 +7,6 @@ use Mofumofu3n\Crawler\Parser\ParserFactory;
 
 use AnimeTools\Model\ArticleBuilder;
 
-
 class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
 {
     private $feedObject;
@@ -37,12 +36,11 @@ class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
 
         return true;
     }
-
     
     /**
-     * 記事を保存する 
-     * @param mixed $feedObject 
-     * @param mixed $article 
+     * 記事を保存する
+     * @param mixed $feedObject
+     * @param mixed $article
      * @access private
      * @return void
      */

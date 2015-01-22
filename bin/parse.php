@@ -5,7 +5,6 @@ if (file_exists(__DIR__.'/../Config.php')) {
     require __DIR__.'/../Config.php';
 }
 
-
 use AnimeTools\Crawler;
 use AnimeTools\Model\ArticleBuilder;
 use AnimeTools\Model\Feed;
@@ -36,8 +35,6 @@ try {
         $simpleFeed = new SimpleFeed($i, $feed);
         $feedArray[$i] = $simpleFeed;
     }
-        //echo sprintf("id: %s, title: %s, url: %s \n", $feed->getId(), $feed->getTitle(), $feed->getUrl());
-        //addArticle($object);
 } catch (ParseException $e) {
     var_dump($e);
 }
