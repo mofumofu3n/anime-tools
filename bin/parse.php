@@ -16,11 +16,9 @@ use Parse\ParseQuery;
 use Parse\ParseException;
 
 // Parseへのアクセスを設定
-$APP_ID = (defined(PARSE_APP_ID) ? PARSE_APP_ID : $_SERVER['PARSE_APP_ID']);
-$REST_KEY  = (defined(PARSE_REST_KEY) ? PARSE_REST_KEY : $_SERVER['PARSE_REST_KEY']);
-$MASTER_KEY  = (defined(PARSE_MASTER_KEY) ? PARSE_MASTER_KEY : $_SERVER['PARSE_MASTER_KEY']);
-
-print($APP_ID);
+$APP_ID = (defined('PARSE_APP_ID') ? PARSE_APP_ID : $_SERVER['PARSE_APP_ID']);
+$REST_KEY  = (defined('PARSE_REST_KEY') ? PARSE_REST_KEY : $_SERVER['PARSE_REST_KEY']);
+$MASTER_KEY  = (defined('PARSE_MASTER_KEY') ? PARSE_MASTER_KEY : $_SERVER['PARSE_MASTER_KEY']);
 
 ParseClient::initialize($APP_ID, $REST_KEY, $MASTER_KEY);
 
