@@ -6,6 +6,7 @@ use Mofumofu3n\Crawler\Model\StructArticle;
 use Mofumofu3n\Crawler\Parser\ParserFactory;
 
 use AnimeTools\Model\ArticleBuilder;
+use AnimeTools\Model\ArticleQuery;
 
 class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
 {
@@ -31,6 +32,12 @@ class Crawler extends \Mofumofu3n\Crawler\AbstractCrawler
         $articles = $parser->parse($decode);
 
         foreach ($articles as $article) {
+            $articleQuery = new ArticleQuery();
+            $count = $articleQuery->findUrlCount($article[StructArticle::ARTICLE_LINK]);
+            if ($count > 0) {
+                // すでに保存済み
+                continue;
+            }
             $this->addArticle($this->feedObject[$feedId], $article);
         }
 
